@@ -1,5 +1,6 @@
 const Cart = require("../../models/Cart");
 const Product = require("../../models/Product");
+const axios = require("axios"); // Add axios for API requests
 
 const addToCart = async (req, res) => {
   try {
@@ -12,14 +13,16 @@ const addToCart = async (req, res) => {
       });
     }
 
-    const product = await Product.findById(productId);
+    // // Fetch product details from the external API
+    // const apiResponse = await axios.get(`https://www.weshop.ai/member/${productId}`);
+    // const product = apiResponse.data;
 
-    if (!product) {
-      return res.status(404).json({
-        success: false,
-        message: "Product not found",
-      });
-    }
+    // if (!product || !product.id) {
+    //   return res.status(404).json({
+    //     success: false,
+    //     message: "Product not found",
+    //   });
+    // }
 
     let cart = await Cart.findOne({ userId });
 
@@ -229,9 +232,23 @@ const deleteCartItem = async (req, res) => {
   }
 };
 
+
+const clearCart = async (userId) => {
+  try {
+    const cart = await Cart.findOne({ userId });
+    if (cart) {
+      cart.items = [];
+      await cart.save();
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 module.exports = {
   addToCart,
   updateCartItemQty,
   deleteCartItem,
   fetchCartItems,
+  clearCart,
 };
