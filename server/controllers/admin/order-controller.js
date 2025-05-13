@@ -23,8 +23,10 @@ const getOrderDetails = async (req, res) => {
 };
 
 const updateOrderStatus = async (req, res) => {
+  console.log("111111");
   const { orderId } = req.params;
   const { status } = req.body;
+  console.log(' APi Data: ', orderId, status);
   try {
     const order = await Order.findById(orderId);
     if (!order) {
@@ -34,6 +36,7 @@ const updateOrderStatus = async (req, res) => {
     await order.save();
     res.status(200).json({ success: true, order });
   } catch (error) {
+    console.log("Error: ", error);
     res.status(500).json({ success: false, error: error.message });
   }
 };
