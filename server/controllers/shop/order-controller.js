@@ -1,4 +1,5 @@
 const paypal = require("../../helpers/paypal");
+const { clearCart } = require("./cart-controller");
 const Order = require("../../models/Order");
 const Cart = require("../../models/Cart");
 const Product = require("../../models/Product");
@@ -118,6 +119,47 @@ const createOrder = async (req, res) => {
   }
 };
 
+const placeOrder = async (req, res) => {
+  try {
+    const { userId, orderDetails } = req.body;
+
+    // Logic to place the order
+    const newOrder = new Order({
+      userId,
+      orderDetails,
+      userId,
+      cartId,
+      cartItems,
+      addressInfo,
+      orderStatus,
+      paymentMethod,
+      paymentStatus,
+      totalAmount,
+      orderDate,
+      orderUpdateDate,
+      paymentId,
+      payerId,
+    });
+
+    await newOrder.save();
+
+    // Clear the cart after placing the order
+    await clearCart(userId);
+
+    res.status(200).json({
+      success: true,
+      message: "Order placed successfully",
+      data: newOrder,
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({
+      success: false,
+      message: "Error placing order",
+    });
+  }
+};
+
 const capturePayment = async (req, res) => {
   try {
     const { paymentId, payerId, orderId } = req.body;
@@ -227,4 +269,5 @@ module.exports = {
   capturePayment,
   getAllOrdersByUser,
   getOrderDetails,
+  placeOrder,
 };
