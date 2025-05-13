@@ -7,7 +7,7 @@ cloudinary.config({
   api_key: process.env.CLOUDINARY_API_KEY,
   api_secret: process.env.CLOUDINARY_API_SECRET,
 });
-
+//stores in memory as buffer objects
 const storage = new multer.memoryStorage();
 
 async function imageUploadUtil(file) {
