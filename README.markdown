@@ -10,7 +10,6 @@
 - [**Usage**](#usage)
 - [**API Endpoints**](#api-endpoints)
 - [**Contributing**](#contributing)
-- [**License**](#license)
 - [**Contact**](#contact)
 
 ## **Features**
@@ -28,7 +27,7 @@
 - **Frontend**: **React.js** (assumed for product-details.jsx and virtual try-on UI)
 - **API Requests**: **Axios** for external API calls
 - **Version Control**: **Git**, **GitHub**
-- **External APIs**: **weshop.ai** for product data, **try-on API** (e.g., for virtual try-on)
+- **External APIs**: **Rapid API** for virtual try-on
 
 ## **Installation**
 
@@ -58,7 +57,6 @@ To set up the **EmpowerHer** project locally, follow these steps:
      MONGODB_URI=your_mongodb_connection_string
      JWT_SECRET=your_jwt_secret
      RAPID_API_KEY=your_rapid_api_key
-     TRYON_API_URL=https://tryon-api.example.com
      ```
    - Replace **placeholders** with **actual values**.
 
