@@ -18,7 +18,7 @@
 - **Virtual Try-On**: Preview products (e.g., clothing, accessories) using an **image-based try-on** feature powered by **external APIs**.
 - **Cart Management**: **Add**, **update**, **delete**, and **fetch** cart items for a seamless shopping experience.
 - **User Authentication**: **Secure login** and **authorization** for personalized features (assumed based on context).
-- **Product Integration**: Fetch **product details** from **external APIs** (e.g., weshop.ai).
+- **Product Integration**: Fetch **product details** from **external APIs** (e.g., rapid api).
 - **Responsive Design**: A **user-friendly interface** for **desktop** and **mobile** users.
 
 ## **Technologies**
@@ -46,7 +46,7 @@ To set up the **EmpowerHer** project locally, follow these steps:
      cd server
      npm install
      ```
-   - For the **frontend** (if applicable):
+   - For the **frontend**:
      ```bash
      cd client
      npm install
@@ -57,7 +57,7 @@ To set up the **EmpowerHer** project locally, follow these steps:
      ```env
      MONGODB_URI=your_mongodb_connection_string
      JWT_SECRET=your_jwt_secret
-     WESHOP_API_KEY=your_weshop_api_key
+     RAPID_API_KEY=your_rapid_api_key
      TRYON_API_URL=https://tryon-api.example.com
      ```
    - Replace **placeholders** with **actual values**.
@@ -68,12 +68,12 @@ To set up the **EmpowerHer** project locally, follow these steps:
      cd server
      npm run dev
      ```
-   - Start the **frontend** (if applicable):
+   - Start the **frontend**:
      ```bash
      cd client
      npm run dev
      ```
-   - The **backend** runs on **`http://localhost:5000`**, and the **frontend** (if included) runs on **`http://localhost:3000`**.
+   - The **backend** runs on **`http://localhost:5000`**, and the **frontend** runs on **`http://localhost:3000`**.
 
 ## **Usage**
 
@@ -106,7 +106,7 @@ Below are **key API endpoints** for the **EmpowerHer** platform (based on tryon-
 - **DELETE /api/shop/cart/:userId/:productId**: **Delete** a **cart item**.
 - **POST /api/shop/cart/clear/:userId**: **Clear** the **cart** (internal function).
 
-### **Virtual Try-On (assumed)**
+### **Virtual Try-On**
 
 - **POST /api/shop/try-on**: Process a **virtual try-on** request.
   - **Body**: `{ image, productId }`
@@ -147,10 +147,7 @@ We **welcome contributions** to **EmpowerHer**! To contribute:
 
 **Join our community** to **empower women** and create **positive change**! Together, let’s build a **more inclusive** and **equitable world**. 🌍
 
-## **License**
-
-This project is licensed under the **MIT License** - see the **[LICENSE](LICENSE)** file for details.
 
 ## **Contact**
 
-For **questions** or **feedback**, please contact [**Momina Faisal**](mailto:your-email@example.com) or open an **issue** on the **GitHub repository**.
+For **questions** or **feedback**, please contact [**Momina Faisal**](mominafaisal59@gmail.com) or open an **issue** on the **GitHub repository**.
